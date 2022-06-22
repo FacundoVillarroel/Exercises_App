@@ -22,3 +22,5 @@ const App = () => {
 }
 
 export default App
+
+//36:28 Build and Deploy a Modern React 18 Fitness Exercises App With APIs | Golds Gym
