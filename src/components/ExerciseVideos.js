@@ -1,14 +1,24 @@
 import React from 'react';
 import {Box, Stack, Typography} from "@mui/material";
 
+import Loader from "./Loader"
+
 const ExerciseVideos = ({exerciseVideos, name}) => {
 
-  if (!exerciseVideos.length) return "loading..."
+  if (!exerciseVideos.length) {
+    return (
+      <Box sx={{marginTop:{ lg:"200px", xs:"20px"}}} p="20px">
+        <Typography variant="h3" mb="33px">
+          Watch <span style={{color:"#ff2625", textTransform:"capitalize"}}>{name}</span> exercise videos
+        </Typography>
+        <Loader/>
+      </Box>
+    )}
 
   return (
     <Box sx={{marginTop:{ lg:"200px", xs:"20px"}}} p="20px">
       <Typography variant="h3" mb="33px">
-        Watch <span style={{color:"#ff2625", textTransform:"capitalize"}}>{name}</span> exercose videos
+        Watch <span style={{color:"#ff2625", textTransform:"capitalize"}}>{name}</span> exercise videos
       </Typography>
       <Stack justifyContent="flex-start" flexWrap="wrap" alignItems="center"
         sx={{
@@ -16,7 +26,7 @@ const ExerciseVideos = ({exerciseVideos, name}) => {
           gap:{lg:"110px", xs:"0"}
         }}
       >
-        {exerciseVideos?.slice(0, 6).map((item, index) => (
+        {exerciseVideos?.slice(0, 3).map((item, index) => (
           <a 
             key={index} 
             className="exercise-video" 
