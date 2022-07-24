@@ -7,7 +7,9 @@ import ExerciseCard from "./ExerciseCard"
 
 const Exercises = ({exercises, setExercises, bodyPart}) => {
   const [currentPage,setCurrentPage] = useState(1)
-  const exercisesPerPage = 9;
+  const [exercisesPerPage, setExercisesPerPage] = useState(9)
+  
+  
 
   const indexOfLastExercise= currentPage* exercisesPerPage;
   const indexOfFirstExercise= indexOfLastExercise - exercisesPerPage;
@@ -19,6 +21,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
   }
 
   useEffect(() => {
+    if(window.screen.width <= 1080 ) setExercisesPerPage(6)
     const fetchExercisesData = async() =>{
       let exercisesData = [];
 
@@ -32,7 +35,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
     }
 
     fetchExercisesData();
-  },[bodyPart])
+  },[bodyPart, exercisesPerPage, setExercises])
 
   return (
     <Box id="exercises"
