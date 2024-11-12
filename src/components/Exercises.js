@@ -8,8 +8,6 @@ import ExerciseCard from "./ExerciseCard"
 const Exercises = ({exercises, setExercises, bodyPart}) => {
   const [currentPage,setCurrentPage] = useState(1)
   const [exercisesPerPage, setExercisesPerPage] = useState(9)
-  
-  
 
   const indexOfLastExercise= currentPage* exercisesPerPage;
   const indexOfFirstExercise= indexOfLastExercise - exercisesPerPage;
